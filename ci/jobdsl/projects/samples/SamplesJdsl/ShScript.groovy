@@ -42,11 +42,11 @@ folder('sysjin')
 folder('sysjin/samples')
 
 job_sh_script(this, 'sysjin/samples/HelloWorld', 
-    'ci/jobdsl/projects/sysjin/Samples/sample.sh',
+    'ci/jobdsl/projects/samples/SamplesJdsl/sample.sh',
     the_title: 'HelloWorld')
 
 job_sh_script(this, 'sysjin/samples/ByeWorld', 
-    'ci/jobdsl/projects/sysjin/Samples/sample.sh',
+    'ci/jobdsl/projects/samples/SamplesJdsl/sample.sh',
     the_title: 'ByeWorld')
     
 

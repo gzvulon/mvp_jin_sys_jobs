@@ -1,5 +1,5 @@
+import lib.EslCtx
 
-import lib.Esl
 // --------------------------------
 // should be places in script file 
 def getScriptEnvVars(){
@@ -9,25 +9,14 @@ def getScriptEnvVars(){
     env['GIT_COMMIT'] = "${GIT_COMMIT}"
     env['GIT_BRANCH'] = "${GIT_BRANCH}"
     env['JENKINS_SERVER'] = "${JENKINS_SERVER}"
-    env['DEFAULT_JIN_BRANCH'] = "${DEFAULT_JIN_BRANCH}"
+    // env['DEFAULT_JIN_BRANCH'] = "${DEFAULT_JIN_BRANCH}"
     env['JOB_NAME'] = "${JOB_NAME}"
     return env
 }
+def esl = new EslCtx(this, out, getScriptEnvVars())
 // --------------------------------
-def job_hello(Map map = [:], jdsl, job_name) {
-    if (Esl.shouldSkipJob(job_name, "${DSL_JOB}")) {
-        return
-    }
-
-    def the_job = jdsl.job(job_name){
-        steps {
-            shell("echo hello")
-        }
-    }
-    return the_job
-}
 
 folder('sysjin')
 folder('sysjin/samples')
-job_hello(this, 'sysjin/samples/Hello')
-
+esl.createPipe('sysjin/samples/PipeSample', 'PipeSample.pipe.groovy',
+    jin_branch: 'ivanne/sys_cfg')

@@ -1,4 +1,4 @@
-def active_branch = 'master'
+def active_branch = 'ivanne/sys_cfg'
 def github_username = 'gzvulon'
 def github_project = 'mvp_jin_sys_jobs'
 
