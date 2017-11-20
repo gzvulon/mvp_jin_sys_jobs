@@ -20,3 +20,5 @@ folder('sysjin')
 folder('sysjin/samples')
 esl.createPipe('sysjin/samples/PipeSample', 'PipeSample.pipe.groovy',
     jin_branch: 'ivanne/sys_cfg')
+esl.createPipe('sysjin/samples/DeclarativeSample', 'DeclarativeSample.pipe.groovy',
+    jin_branch: 'ivanne/sys_cfg')
