@@ -29,4 +29,8 @@ esl.createPipe('sysjin/samples/DeclarativeSample',
 
 esl.createPipe('sysjin/samples/LibsDeclarativeSample', 
     'LibsDeclarativeSample.pipe.groovy',
-    jin_branch: 'ivanne/sys_cfg')    
+    jin_branch: 'ivanne/sys_cfg')
+
+esl.createPipe('sysjin/samples/TestBuildJobs', 
+    'TestBuildJobs.pipe.groovy',
+    jin_branch: 'ivanne/sys_cfg') 
