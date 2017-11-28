@@ -17,18 +17,21 @@ stages {
         sh('ls')
     }}
 
-    stage('build many') { steps {
+    stage('build decalrative') { steps {
         parallel(
-            'DeclarativeSample': {
-                jinBuildJob('sysjin/samples/DeclarativeSample', copy_arts: true)
+            'Hello': {
+                jinBuildJob('sysjin/samples/Hello', copy_arts: false)
             },
-            'LibsDeclarativeSample': {
-                jinBuildJob('sysjin/samples/LibsDeclarativeSample', copy_arts: true)
+            'HelloWorld': {
+                jinBuildJob('sysjin/samples/HelloWorld', copy_arts: false)
+            },
+            'ByeWorld': {
+                jinBuildJob('sysjin/samples/ByeWorld', copy_arts: false)
             }
        )
     }}   
 
-    stage('build many 2') { steps {
+    stage('build scripted') { steps {
         script {
             parallel(jinMakeParallel([
                 'DeclarativeSample',
